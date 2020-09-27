@@ -14,6 +14,7 @@ const type_graphql_1 = require("type-graphql");
 const typeorm_1 = require("typeorm");
 const typeorm_2 = require("typeorm");
 const User_1 = require("./User");
+const Updoot_1 = require("./Updoot");
 let Post = class Post extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -42,9 +43,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Post.prototype, "creatorId", void 0);
 __decorate([
+    type_graphql_1.Field(),
     typeorm_2.ManyToOne(() => User_1.User, (user) => user.posts),
     __metadata("design:type", User_1.User)
 ], Post.prototype, "creator", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => Updoot_1.Updoot, (updoot) => updoot.post),
+    __metadata("design:type", Array)
+], Post.prototype, "updoots", void 0);
 __decorate([
     type_graphql_1.Field(() => String),
     typeorm_1.CreateDateColumn(),
