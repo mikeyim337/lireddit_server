@@ -7,7 +7,7 @@ import {
   BaseEntity,
 } from "typeorm";
 import { ObjectType, Field } from "type-graphql";
-import { ManyToOne } from "@mikro-orm/core";
+
 import { OneToMany } from "typeorm";
 import { Post } from "./Post";
 
